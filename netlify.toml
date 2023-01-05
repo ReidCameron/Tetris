@@ -3,5 +3,5 @@
   functions = "netlify/functions"
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/index.ejs"
   status = 200
