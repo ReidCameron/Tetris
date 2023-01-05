@@ -10,9 +10,9 @@ app.use('/',(req, res)=>{
 })
 
 //debug
-app.get("/*", (req, res) =>{
-  res.sendFile(path.join(__dirname, "../views/index.ejs"))
-})
+// app.get("/*", (req, res) =>{
+//   res.sendFile(path.join(__dirname, "../views/index.ejs"))
+// })
 
 //serverless
 const handler = serverless(app);
