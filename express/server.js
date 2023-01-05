@@ -7,7 +7,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use('/',(req, res)=>{
-    res.sendFile(path.join(__dirname, "../views/index.html"))
+    res.sendFile(path.join(__dirname, "../public/index.html"))
     // res.render('index');
 })
 
