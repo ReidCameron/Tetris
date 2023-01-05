@@ -4,6 +4,7 @@
   "private":true,
   "scripts":
     {
+      "index": "node createIndex.js",
       "build":"netlify-lambda build express"
     },
   "dependencies":
