@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../script.js" defer></script>
+    <title>Tetris</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <p>Tetris</p>
+        <div class="scores">
+            <label>Score: <label class="current score">0</label></label>
+            <label>High Score: <label class="high score">0</label></label>
+        </div>
+        <div class="table-wrapper">
+            <div class = "modal" id="controls">
+                <p>Controls</p>
+                <div class="dirpad">
+                    <div></div>
+                    <div><label>Rotate CW</label><kbd>UP</kbd></div>
+                    <div></div>
+                    <div><label>Shift Left</label><kbd>Left</kbd></div>
+                    <div><label>Soft Drop</label><kbd>Down</kbd></div>
+                    <div><label>Shift Right</label><kbd>Right</kbd></div>
+                </div>
+                <div class="ctrl"><kbd>CTRL</kbd><label>+</label></div>
+                <div class="dirpad">
+                    <div></div>
+                    <div><label>Rotate CCW</label><kbd>UP</kbd></div>
+                    <div></div>
+                    <div><label>Snap Left</label><kbd>Left</kbd></div>
+                    <div><label>Hard Drop</label><kbd>Down</kbd></div>
+                    <div><label>Snap Right</label><kbd>Right</kbd></div>
+                </div>
+                <button class="start">Play Game</button>
+            </div>
+            <table class="game-table">
+                <% for( let y = 0; y < 20; y++ ) { %>
+                    <tr class="game-row">
+                    <% for( let x = 0; x < 10; x++ ) { %>
+                        <td class="box" id="<%- `${x + y*10}`%>"></td>
+                    <% } %>
+                    </tr>
+                <% } %>
+            </table>
+            <div class="tmo-viewer">
+                <label>Next:</label>
+                <table class="v1">
+                    <% for( let y = 0; y < 4; y++ ) { %>
+                        <tr class="viewer-row">
+                        <% for( let x = 0; x < 4; x++ ) { %>
+                            <td class="viewer-box" id="v1-<%- `${x + y*4}`%>"></td>
+                        <% } %>
+                        </tr>
+                    <% } %>
+                <table class="v2">
+                    <% for( let y = 0; y < 4; y++ ) { %>
+                        <tr class="viewer-row">
+                        <% for( let x = 0; x < 4; x++ ) { %>
+                            <td class="viewer-box" id="v2-<%- `${x + y*4}`%>"></td>
+                        <% } %>
+                        </tr>
+                    <% } %>
+                </table>
+                <table class="v3">
+                    <% for( let y = 0; y < 4; y++ ) { %>
+                        <tr class="viewer-row">  
+                        <% for( let x = 0; x < 4; x++ ) { %>
+                            <td class="viewer-box" id="v3-<%- `${x + y*4}`%>"></td>
+                        <% } %>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
