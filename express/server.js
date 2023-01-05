@@ -3,23 +3,20 @@ const ejs = require('ejs')
 const serverless = require('serverless-http');
 const app = express();
 const fs = require ('fs')
+const path = require('path')
 
 
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-// ejs.renderFile("./views/index.ejs").then( html =>{
-//     fs.writeFile('views/index.html', html, function (err) {
-//         if (err) throw err;
-//     });
-// })
-
+ejs.renderFile("./views/index.ejs").then( html =>{
+    fs.writeFile('./views/index.html', html, function (err) {
+        if (err) throw err;
+    });
+})
 app.use('/',(req, res)=>{
-    ejs.renderFile("../views/index.ejs").then( html =>{
-        res.send(html)
-    })
-    // res.sendFile(path.join(__dirname, "../views/index.html"))
+    res.sendFile(path.join(__dirname, "../views/index.html"))
     // res.sendFile(path.join(__dirname, "../views/index.ejs"))
     // res.render('index');
 })
