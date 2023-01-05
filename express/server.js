@@ -1,4 +1,5 @@
 const express = require ('express');
+const ejs = require('ejs')
 const serverless = require('serverless-http');
 const app = express();
 
@@ -6,7 +7,11 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use('/',(req, res)=>{
-    res.render('index');
+    ejs.renderFile("./views/index.ejs").then( html =>{
+        res.send(html)
+    })
+    // res.sendFile(path.join(__dirname, "../views/index.ejs"))
+    // res.render('index');
 })
 
 //debug
