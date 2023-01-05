@@ -1,5 +1,5 @@
 const express = require ('express');
-
+const serverless = require('serverless-http');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -9,6 +9,11 @@ app.use('/',(req, res)=>{
     res.render('index');
 })
 
-app.listen(3000, () => {
-    console.log("Listening on port 3000")
-});
+const handler = serverless(app);
+module.exports.handler = async (event, context) => {
+    return await handler(event, context);
+};
+
+// app.listen(3000, () => {
+//     console.log("Listening on port 3000")
+// });
